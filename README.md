@@ -1,54 +1,99 @@
 # JIRA Client CLI
 
-A simple and interactive command-line tool to connect with JIRA and manage issues directly from your terminal. This tool lets you view, create, and update JIRA issues efficiently.
+A simple and interactive command-line tool to connect with JIRA and manage issues directly from your terminal. With this tool, you can view, create, update, and delete JIRA issues efficiently using an intuitive interface.
+
+---
 
 ## Features
-- **Get Issue Details**: Fetch detailed information about a specific JIRA issue.
-- **Create Issues**: Add new issues to your JIRA projects.
-- **Update Issues**: Modify the summary and description of existing issues.
-- **Delete Issues**: Delete an issue.
-- **User-Friendly Interface**: Interactive prompts make it easy to use.
+- **Get Issue Details**: Fetch detailed information about specific JIRA issues.
+- **Create Issues**: Seamlessly add new issues to your JIRA projects.
+- **Update Issues**: Modify the summary and description of existing issues directly from the CLI.
+- **Delete Issues**: Remove unwanted issues quickly and easily.
+- **User-Friendly Interface**: Interactive prompts make the tool easy to use, even for beginners.
+
+---
 
 ## Prerequisites
-1. **Python 3.x** must be installed on your system.
-2. A **JIRA API Token** is required to authenticate. [Learn how to create a JIRA API token](https://id.atlassian.com/manage-profile/security/api-tokens).
+To use this tool, ensure the following:
+1. **Python 3.x** is installed on your system.
+2. A **JIRA API Token** is required for authentication.  
+   Learn how to create a JIRA API token [here](https://id.atlassian.com/manage-profile/security/api-tokens).
+
+---
 
 ## Installation
-1. Open a terminal and navigate to the project directory:
+
+1. Clone this repository:
    ```bash
-   cd /path/to/project
+   git clone https://github.com/omer1C/JIRA-Client-CLI.git
+   cd JIRA-Client-CLI
+   ```
 
-2. Install requirements:
-    pip3 install -r requirements.txt
-    or 
-    pip install -r requirements.txt
+2. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-3. Active Python WorkSpace:
-    macOS/Linux:
-    source venv/bin/activate
+3. Activate the Python virtual environment:
+   - **macOS/Linux**:
+     ```bash
+     source venv/bin/activate
+     ```
+   - **Windows**:
+     ```bash
+     venv\Scripts\activate
+     ```
 
-    Windows:
-    venv\Scripts\activate
+4. Run the main script:
+   ```bash
+   python main.py
+   ```
 
-4. Run main.py:
-    python3 main.py
-    or 
-    python main.py
+---
 
-## User Guide:
-- ### Log in to Jira user:
-![alt text](image.png)
-- ### Main Menu:
-![alt text](image-7.png)
-- ### Get an Issue: 
-Enter issue key and see relevant information from the issue:
-![alt text](image-2.png)
-- ### Create an Issue:
-Enter project key, summary, and description:
-![alt text](image-4.png)
-- ### Update an Issue:
-Enter issue key summary and description
-![alt text](image-5.png)
-- ### Delete an Issue:
-Enter issue key you want to delete:
-![alt text](image-6.png)
+## User Guide
+
+### Log in to JIRA:
+Authenticate your JIRA account using your API token.  
+![Log in](image.png)
+
+---
+
+### Main Menu:
+Navigate through the main menu to access features like fetching, creating, updating, or deleting issues.  
+![Main Menu](image-7.png)
+
+---
+
+### Get Issue Details:
+Enter the issue key to retrieve detailed information about a specific issue.  
+![Get Issue](image-2.png)
+
+---
+
+### Create an Issue:
+Provide the project key, summary, and description to create a new issue.  
+![Create Issue](image-4.png)
+
+---
+
+### Update an Issue:
+Modify the summary and description of an existing issue by entering its issue key.  
+![Update Issue](image-5.png)
+
+---
+
+### Delete an Issue:
+Enter the issue key to delete an unwanted issue from your project.  
+![Delete Issue](image-6.png)
+
+---
+
+## Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request to improve this tool.
+
+
+---
+
+## Contact
+For questions or support, reach out via [GitHub Issues](https://github.com/omer1C/JIRA-Client-CLI/issues).
