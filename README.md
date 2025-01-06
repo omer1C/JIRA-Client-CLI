@@ -23,7 +23,7 @@ To use this tool, ensure the following:
 
 ## Installation
 
-1. Clone this repository:
+1. Clone this repository: 
    ```bash
    git clone https://github.com/omer1C/JIRA-Client-CLI.git
    cd JIRA-Client-CLI
