@@ -17,12 +17,15 @@ def update_payload(manager):
         return update_payload(manager)
     summary = questionary.text("New summary (leave blank if unchanged):").ask().strip()
     description = questionary.text("New description (leave blank if unchanged):").ask().strip()
+    labels = questionary.text("New labels (comma-separated, leave blank if unchanged):").ask().strip()
 
     payload = {}
     if summary:
         payload["summary"] = summary
     if description:
         payload["description"] = description
+    if labels:
+        payload["labels"] = [label.strip() for label in labels.split(",")]
 
     return payload, issue_key
 
@@ -36,7 +39,11 @@ def main():
             base_url = questionary.text("Enter Jira base URL (e.g., https://your-domain.atlassian.net): ").ask()
             user_name = questionary.text("Enter your Jira username (email): ").ask()
             api_token = questionary.text("Enter your Jira API token: ").ask()
-            manager = Manager(base_url, user_name, api_token)
+            # manager = Manager(base_url, user_name, api_token)
+            manager = Manager("https://post-team-tpn02lo3.atlassian.net",
+                               "omerak@post.bgu.ac.il",
+                                 "ATATT3xFfGF0RM80AmSYAXGmtLlctVhpYSU06MXgJ9uFZtctwBN-PYHimElopKJ-aEcZdXWcRvdlo5f38KA-dTj9mo0c4mPJyxA6rUo6ud-2sKL_LEcfSH-ms10P2dQPc1KMjZHIzlozfIEJOrLyBTJpakFnWzeM6GhpNpscsawtJZJ5zCoEpQ8=DD38A9BC")
+
             if manager:
                 break
         except Exception as e:
