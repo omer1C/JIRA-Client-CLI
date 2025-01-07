@@ -84,3 +84,25 @@ class Manager:
                 print(Fore.RED + f"Failed to add comment: {e}" + Style.RESET_ALL)
 
 
+    def update_status(self, issue_key, status_name):
+        if self.validate_issue(issue_key):
+            try:
+                transitions = self.client.get_transitions(issue_key)
+                transition_id = None
+        
+                for transition in transitions['transitions']:
+                    if transition['to']['name'].lower() == status_name.lower():
+                        transition_id = transition['id']
+                        break
+                
+                if not transition_id:
+                    print(Fore.RED + f"No transition found for status '{status_name}'." + Style.RESET_ALL)
+                    return
+                response = self.client.transition_issue(issue_key, transition_id)
+                if response:
+                    print(Fore.GREEN + f"Issue {issue_key} successfully transitioned to '{status_name}'." + Style.RESET_ALL)
+            except Exception as e:
+                print(Fore.RED + f"Failed to change status: {e}" + Style.RESET_ALL)
+
+        else:
+            print("Invalid issue key, please try again.")

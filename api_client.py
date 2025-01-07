@@ -54,3 +54,18 @@ class APIClient:
         response = requests.post(url, json=payload, auth=self.auth, headers=self.headers)
         response.raise_for_status()
         return response.json()
+    
+    def get_transitions(self, issue_key):
+        url = f"{self.base_url}/{ISSUE_URL}/{issue_key}/transitions"
+        response = requests.get(url, auth=self.auth, headers=self.headers)
+        response.raise_for_status()
+        return response.json()
+
+    def transition_issue(self, issue_key, transition_id):
+        url = f"{self.base_url}/{ISSUE_URL}/{issue_key}/transitions"
+        payload = {"transition": {"id": transition_id}}
+        response = requests.post(url, json=payload, auth=self.auth, headers=self.headers)
+        if response.status_code == 204:
+            return True
+        else:
+            return False

@@ -60,6 +60,7 @@ def main():
                     "Update an Issue 🏷️",
                     "Delete an Issue ❌",
                     "Add a comment to an Issue 💬",
+                    "Update Status ✅",
                     "Exit 🚪"
                 ]
             ).ask()
@@ -89,6 +90,10 @@ def main():
                 issue_key = questionary.text("Please Enter the issue key to add a comment:").ask()
                 comment = questionary.text("Please Enter the comment:").ask()
                 manager.add_comment(issue_key, comment)
+            elif action == "Update Status ✅":
+                issue_key = questionary.text("Please Enter the issue key to update status:").ask()
+                status_name = questionary.text("Enter the desired status (e.g.,To Do In Progaess, Done):").ask()
+                manager.update_status(issue_key, status_name)
 
             elif action == "Exit 🚪":
                 print(Fore.MAGENTA + "Thanks for trying out the JIRA Client CLI! 🚀\nGoodbye! 👋" + Style.RESET_ALL)
