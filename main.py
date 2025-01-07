@@ -17,7 +17,7 @@ def update_payload(manager):
         return update_payload(manager)
     summary = questionary.text("New summary (leave blank if unchanged):").ask().strip()
     description = questionary.text("New description (leave blank if unchanged):").ask().strip()
-    labels = questionary.text("New labels (comma-separated, leave blank if unchanged):").ask().strip()
+    labels = questionary.text("New labels (comma-separated, leave blank if unchanged):").ask()
 
     payload = {}
     if summary:
@@ -25,7 +25,7 @@ def update_payload(manager):
     if description:
         payload["description"] = description
     if labels:
-        payload["labels"] = [label.strip() for label in labels.split(",")]
+        payload["labels"] = labels.split()
 
     return payload, issue_key
 
@@ -59,6 +59,7 @@ def main():
                     "Create an Issue 📝",
                     "Update an Issue 🏷️",
                     "Delete an Issue ❌",
+                    "Add a comment to an Issue 💬",
                     "Exit 🚪"
                 ]
             ).ask()
@@ -84,6 +85,10 @@ def main():
             elif action == "Delete an Issue ❌":
                 issue_key = questionary.text("Please Enter the issue key to delete:").ask()
                 manager.delete_issue(issue_key)
+            elif action == "Add a comment to an Issue 💬":
+                issue_key = questionary.text("Please Enter the issue key to add a comment:").ask()
+                comment = questionary.text("Please Enter the comment:").ask()
+                manager.add_comment(issue_key, comment)
 
             elif action == "Exit 🚪":
                 print(Fore.MAGENTA + "Thanks for trying out the JIRA Client CLI! 🚀\nGoodbye! 👋" + Style.RESET_ALL)

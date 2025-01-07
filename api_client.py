@@ -36,7 +36,7 @@ class APIClient:
     
     def update_issue(self, issue_key, payload):
         url = f"{self.base_url}/{ISSUE_URL}/{issue_key}"
-        response = requests.put(url, json={"fields": payload}, auth=self.auth, headers=self.headers)
+        response = requests.put(url, json=payload, auth=self.auth, headers=self.headers)
         if response.status_code == 204:
            print("Issue updated successfully!")
         else:
@@ -47,5 +47,10 @@ class APIClient:
         url = f"{self.base_url}/{ISSUE_URL}/{issue_key}"
         response = requests.delete(url, headers=self.headers, auth=self.auth)
         return response
-  
-        
+
+    def add_comment(self, issue_key, comment):
+        url = f"{self.base_url}/{ISSUE_URL}/{issue_key}/comment"
+        payload = {"body": comment}
+        response = requests.post(url, json=payload, auth=self.auth, headers=self.headers)
+        response.raise_for_status()
+        return response.json()

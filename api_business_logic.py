@@ -31,6 +31,7 @@ class Manager:
 
     def update_issue(self, payload, issue_key):
         try:
+            payload = {"fields": payload}
             response = self.client.update_issue(issue_key, payload)
             self.get_issue(issue_key)
             
@@ -73,3 +74,13 @@ class Manager:
                 print(Fore.RED + f"Response: {response.text}" + Style.RESET_ALL)                   
         else:
             print("Invalid issue key, please try again.")
+    
+    def add_comment(self, issue_key, comment):
+        if self.validate_issue(issue_key):
+            try:
+                response = self.client.add_comment(issue_key, comment)
+                print(Fore.GREEN + "Comment added successfully!" + Style.RESET_ALL)
+            except Exception as e:
+                print(Fore.RED + f"Failed to add comment: {e}" + Style.RESET_ALL)
+
+
