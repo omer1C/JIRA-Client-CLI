@@ -24,7 +24,15 @@ class Manager:
 
     def create_issue(self, project_key, summary, description):
             try:
-                issue = self.client.create_issue(project_key, summary, description)
+                payload = {
+            "fields": {
+                "project": {"key": project_key},
+                "summary": summary,
+                "description": description,
+                "issuetype": {"name": "Task"}
+            }
+        }
+                issue = self.client.create_issue(project_key, payload)
                 self.get_issue(issue['key'])
             except Exception as e:
                 print(Fore.RED + f"Error creating issue: {e}" + Style.RESET_ALL)

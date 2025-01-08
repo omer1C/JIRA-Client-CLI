@@ -20,16 +20,8 @@ class APIClient:
         response.raise_for_status()
         return response.json()
 
-    def create_issue(self, project_key, summary, description):
+    def create_issue(self, payload):
         url = f"{self.base_url}/{ISSUE_URL}"
-        payload = {
-            "fields": {
-                "project": {"key": project_key},
-                "summary": summary,
-                "description": description,
-                "issuetype": {"name": "Task"}
-            }
-        }
         response = requests.post(url, json=payload, auth=self.auth, headers=self.headers)
         response.raise_for_status()
         return response.json()

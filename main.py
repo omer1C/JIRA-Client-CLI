@@ -45,6 +45,7 @@ def main():
                                  "ATATT3xFfGF0RM80AmSYAXGmtLlctVhpYSU06MXgJ9uFZtctwBN-PYHimElopKJ-aEcZdXWcRvdlo5f38KA-dTj9mo0c4mPJyxA6rUo6ud-2sKL_LEcfSH-ms10P2dQPc1KMjZHIzlozfIEJOrLyBTJpakFnWzeM6GhpNpscsawtJZJ5zCoEpQ8=DD38A9BC")
 
             if manager:
+                clean_screen()
                 break
         except Exception as e:
             print("Could not connect to Jira, please try again")
@@ -64,14 +65,12 @@ def main():
                     "Exit 🚪"
                 ]
             ).ask()
-
+            clean_screen()
             if action == "Get an Issue 📁":
-                clean_screen()
                 issue_key = questionary.text("Enter the issue key (e.g., PROJ-123):").ask().strip()
                 manager.get_issue(issue_key)
 
             elif action == "Create an Issue 📝":
-                clean_screen()
                 project_key = questionary.text("Enter the project key (e.g., PROJ):").ask().strip()
                 summary = questionary.text("Enter the issue summary:").ask().strip()
                 description = questionary.text("Enter the issue description:").ask().strip()
