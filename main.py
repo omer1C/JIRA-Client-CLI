@@ -42,7 +42,7 @@ def main():
             # manager = Manager(base_url, user_name, api_token)
             manager = Manager("https://post-team-tpn02lo3.atlassian.net",
                                "omerak@post.bgu.ac.il",
-                                 "ATATT3xFfGF0RM80AmSYAXGmtLlctVhpYSU06MXgJ9uFZtctwBN-PYHimElopKJ-aEcZdXWcRvdlo5f38KA-dTj9mo0c4mPJyxA6rUo6ud-2sKL_LEcfSH-ms10P2dQPc1KMjZHIzlozfIEJOrLyBTJpakFnWzeM6GhpNpscsawtJZJ5zCoEpQ8=DD38A9BC")
+                                 "ATATT3xFfGF0o5z7IUtVTz_e8NrPUie-LRUck1-Tq1ZnaZNz6P6tvuyDwZuXCzs8Q-Kj1_vnRa_CzpO09jl5VnHkq3flSDcX5kLSw1fcJdFYrVT4-3gNtpIIShgGxIGg8jNxi1uSLwU8AC3vNZwHcrjIpg3Rnpq6_2vJ6dwGfMVcrmMV8JuhjNA=03620D9D")
 
             if manager:
                 clean_screen()
