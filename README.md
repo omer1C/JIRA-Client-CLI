@@ -61,8 +61,7 @@ Authenticate your JIRA account using your API token.
 
 ### Main Menu:
 Navigate through the main menu to access features like fetching, creating, updating, or deleting issues.  
-![Main Menu](image-7.png)
-
+![alt text](image-1.png)
 ---
 
 ### Get Issue Details:
